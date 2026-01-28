@@ -276,22 +276,25 @@ if (contactForm) {
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData);
     
-    // Construir mensaje para WhatsApp
+    // Construir mensaje para WhatsApp con formato limpio y compatible
     const mensaje = `Hola, soy ${data.contacto} de ${data.nombre}.
 
-Solicito cotización para:
-📋 Servicio: ${data.servicio}
-👥 Número de personas: ${data.personas}
-📞 Teléfono: ${data.telefono}
-📧 Email: ${data.email}
+*Solicito cotizacion para:*
 
-${data.mensaje ? 'Detalles adicionales:\n' + data.mensaje : ''}`;
+▸ Servicio: ${data.servicio}
+▸ Personas: ${data.personas}
+▸ Telefono: ${data.telefono}
+▸ Email: ${data.email}
+
+${data.mensaje ? '▸ Detalles adicionales:\n' + data.mensaje : ''}
+
+_Gracias por contactar a Inversiones Duvan_`;
     
     const whatsappURL = `https://wa.me/584241520170?text=${encodeURIComponent(mensaje)}`;
     window.open(whatsappURL, '_blank');
     
     // Mostrar confirmación
-    alert('✅ Te redirigiremos a WhatsApp para confirmar tu solicitud');
+    alert('Te redirigiremos a WhatsApp para confirmar tu solicitud');
     contactForm.reset();
   });
 }
