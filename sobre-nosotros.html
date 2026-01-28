@@ -178,11 +178,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
         }
         
         .lightbox-image {
             max-width: 100%;
             max-height: 80vh;
+            width: auto;
+            height: auto;
             object-fit: contain;
             border-radius: 8px;
         }
@@ -192,6 +195,77 @@
             text-align: center;
             margin-top: 1rem;
             font-size: 1rem;
+        }
+        
+        /* MÓVIL: Imagen ampliada MUY GRANDE */
+        @media (max-width: 767px) {
+            .lightbox {
+                padding: 0;
+            }
+            
+            .lightbox-content {
+                max-width: 100%;
+                max-height: 100vh;
+                width: 100vw;
+                height: 100vh;
+                justify-content: center;
+            }
+            
+            .lightbox-image {
+                max-width: 100vw;
+                max-height: 100vh;
+                width: 100vw;
+                height: auto;
+                object-fit: contain;
+                border-radius: 0;
+            }
+            
+            .lightbox-caption {
+                position: absolute;
+                bottom: 80px;
+                left: 0;
+                right: 0;
+                background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+                padding: 2rem 1rem 1rem;
+                margin: 0;
+                font-size: 1.125rem;
+                font-weight: 600;
+            }
+            
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+                width: 48px;
+                height: 48px;
+                font-size: 28px;
+                z-index: 10000;
+            }
+            
+            .lightbox-counter {
+                top: 10px;
+                left: 10px;
+                background: rgba(0,0,0,0.7);
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                font-size: 0.875rem;
+                font-weight: 600;
+            }
+            
+            .lightbox-nav {
+                width: 60px;
+                height: 60px;
+                font-size: 32px;
+                background: rgba(0,0,0,0.5);
+                backdrop-filter: blur(10px);
+            }
+            
+            .lightbox-prev {
+                left: 5px;
+            }
+            
+            .lightbox-next {
+                right: 5px;
+            }
         }
         
         .lightbox-close {
@@ -210,10 +284,16 @@
             align-items: center;
             justify-content: center;
             transition: transform 0.2s ease;
+            z-index: 10000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         
         .lightbox-close:hover {
             transform: scale(1.1);
+        }
+        
+        .lightbox-close:active {
+            transform: scale(0.95);
         }
         
         .lightbox-nav {
@@ -232,10 +312,17 @@
             align-items: center;
             justify-content: center;
             transition: all 0.2s ease;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
         
         .lightbox-nav:hover {
             background: rgba(255,255,255,0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .lightbox-nav:active {
+            transform: translateY(-50%) scale(0.95);
         }
         
         .lightbox-prev {
@@ -253,6 +340,10 @@
             left: 0;
             color: white;
             font-size: 0.875rem;
+            background: rgba(0,0,0,0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
         }
         
         /* Footer Simple */
@@ -283,6 +374,11 @@
             
             .container {
                 padding: 3rem 2rem;
+            }
+            
+            .lightbox-image {
+                max-width: 90vw;
+                max-height: 85vh;
             }
         }
         
@@ -338,7 +434,7 @@
             <div class="gallery-item" data-index="1">
                 <img src="imagenes/Sobrenosotros (2).webp" alt="Inversiones Duvan - Cocina Industrial" loading="lazy">
                 <div class="gallery-caption">
-                    <h3>Cocina Industrial</h3>
+                    <h3>Sobre Nosotros</h3>
                     <p>Click para ampliar</p>
                 </div>
             </div>
@@ -354,7 +450,7 @@
             <div class="gallery-item" data-index="3">
                 <img src="imagenes/Sobrenosotros (4).webp" alt="Inversiones Duvan - Equipo de Trabajo" loading="lazy">
                 <div class="gallery-caption">
-                    <h3>Nuestro Equipo</h3>
+                    <h3>Porque Elegirnos</h3>
                     <p>Click para ampliar</p>
                 </div>
             </div>
@@ -362,7 +458,7 @@
             <div class="gallery-item" data-index="4">
                 <img src="imagenes/Sobrenosotros (5).webp" alt="Inversiones Duvan - Área de Preparación" loading="lazy">
                 <div class="gallery-caption">
-                    <h3>Área de Preparación</h3>
+                    <h3>Misión</h3>
                     <p>Click para ampliar</p>
                 </div>
             </div>
@@ -370,7 +466,7 @@
             <div class="gallery-item" data-index="5">
                 <img src="imagenes/Sobrenosotros (6).webp" alt="Inversiones Duvan - Control de Calidad" loading="lazy">
                 <div class="gallery-caption">
-                    <h3>Control de Calidad</h3>
+                    <h3>Beneficios De Contratarnos</h3>
                     <p>Click para ampliar</p>
                 </div>
             </div>
@@ -378,7 +474,7 @@
             <div class="gallery-item" data-index="6">
                 <img src="imagenes/Sobrenosotros (7).webp" alt="Inversiones Duvan - Logística" loading="lazy">
                 <div class="gallery-caption">
-                    <h3>Logística y Distribución</h3>
+                    <h3>Nuestras Opciones</h3>
                     <p>Click para ampliar</p>
                 </div>
             </div>
